@@ -47,9 +47,9 @@ export default function BrandPage() {
         </div>
         <button 
           onClick={() => copyToClipboard(JSON.stringify(brandData, null, 2), 'all')}
-          className="bg-skeleton-bone text-atlantic-black px-6 py-3 font-mono text-xs uppercase tracking-widest hover:bg-fog-gray transition-colors flex items-center gap-2"
+          className="bg-skeleton-bone text-atlantic-black px-6 py-3 font-mono text-xs uppercase tracking-widest hover:bg-fog-gray transition-colors flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm"
         >
-          {copiedSection === 'all' ? <CheckCircle2 className="w-4 h-4 text-green-700" /> : <Copy className="w-4 h-4" />}
+          {copiedSection === 'all' ? <CheckCircle2 className="w-4 h-4 text-green-700" aria-hidden="true" /> : <Copy className="w-4 h-4" aria-hidden="true" />}
           Copy JSON Ruleset
         </button>
       </div>
@@ -87,18 +87,19 @@ export default function BrandPage() {
           <h2 className="font-mono text-xs text-white/50 uppercase tracking-[0.2em]">02. Color Architecture</h2>
           <button 
             onClick={() => copyToClipboard(JSON.stringify(brandData.colors, null, 2), 'colors')}
-            className="text-white/40 hover:text-white transition-colors"
+            className="text-white/40 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm p-1"
+            aria-label="Copy color tokens JSON"
           >
-            {copiedSection === 'colors' ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+            {copiedSection === 'colors' ? <CheckCircle2 className="w-4 h-4 text-green-500" aria-hidden="true" /> : <Copy className="w-4 h-4" aria-hidden="true" />}
           </button>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          <ColorSwatch name="Atlantic Black" hex="#111315" bgClass="bg-[#111315]" textClass="text-white" border />
-          <ColorSwatch name="Skeleton Bone" hex="#F6F4EF" bgClass="bg-[#F6F4EF]" textClass="text-black" />
-          <ColorSwatch name="Fog Gray" hex="#D9D7D2" bgClass="bg-[#D9D7D2]" textClass="text-black" />
-          <ColorSwatch name="Deep Ocean" hex="#16353D" bgClass="bg-[#16353D]" textClass="text-white" />
-          <ColorSwatch name="Rust Signal" hex="#C56A4A" bgClass="bg-[#C56A4A]" textClass="text-white" />
+          <ColorSwatch name="Atlantic Black" hex="#111315" bgClass="bg-atlantic-black" textClass="text-skeleton-bone" border />
+          <ColorSwatch name="Skeleton Bone" hex="#F6F4EF" bgClass="bg-skeleton-bone" textClass="text-atlantic-black" />
+          <ColorSwatch name="Fog Gray" hex="#D9D7D2" bgClass="bg-fog-gray" textClass="text-atlantic-black" />
+          <ColorSwatch name="Deep Ocean" hex="#16353D" bgClass="bg-deep-ocean" textClass="text-skeleton-bone" />
+          <ColorSwatch name="Rust Signal" hex="#C56A4A" bgClass="bg-rust-signal" textClass="text-skeleton-bone" />
         </div>
       </section>
 
@@ -108,9 +109,10 @@ export default function BrandPage() {
           <h2 className="font-mono text-xs text-white/50 uppercase tracking-[0.2em]">03. Typographic Scale</h2>
           <button 
             onClick={() => copyToClipboard(JSON.stringify(brandData.typography, null, 2), 'typography')}
-            className="text-white/40 hover:text-white transition-colors"
+            className="text-white/40 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm p-1"
+            aria-label="Copy typography tokens JSON"
           >
-            {copiedSection === 'typography' ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+            {copiedSection === 'typography' ? <CheckCircle2 className="w-4 h-4 text-green-500" aria-hidden="true" /> : <Copy className="w-4 h-4" aria-hidden="true" />}
           </button>
         </div>
 
@@ -278,10 +280,10 @@ function PromptCard({ title, prompt }: { title: string, prompt: any }) {
       </div>
       <button 
         onClick={handleCopy}
-        className="shrink-0 bg-white/5 hover:bg-white/10 text-white p-3 border border-white/10 transition-colors flex items-center justify-center"
+        className="shrink-0 bg-white/5 hover:bg-white/10 text-white p-3 border border-white/10 transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm min-w-[44px] min-h-[44px]"
         aria-label="Copy Prompt"
       >
-        {copied ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
+        {copied ? <CheckCircle2 className="w-5 h-5 text-green-500" aria-hidden="true" /> : <Copy className="w-5 h-5" aria-hidden="true" />}
       </button>
     </div>
   );

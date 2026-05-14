@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'motion/react';
+import Image from 'next/image';
 import { ArrowUpRight, Shield, Terminal, Database, Radio, Anchor, Hexagon } from 'lucide-react';
 import { TangisonLogo } from '@/components/logo';
 
@@ -17,11 +18,17 @@ export default function Home() {
           style={{ y: heroY }}
           className="absolute inset-0 w-full h-[120%] -top-[10%]"
         >
-          <img 
-            src="https://images.unsplash.com/photo-1498075702571-ecb018f3752d?q=80&w=2078&auto=format&fit=crop" 
-            alt="Skeleton Coast Fog" 
-            className="w-full h-full object-cover cinematic-image opacity-30"
-          />
+          <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
+            <Image 
+              src="https://images.unsplash.com/photo-1498075702571-ecb018f3752d?q=80&w=2078&auto=format&fit=crop" 
+              alt="Skeleton Coast Fog covering the sand dunes and ocean" 
+              fill
+              referrerPolicy="no-referrer"
+              className="object-cover cinematic-image opacity-30"
+              priority
+              sizes="100vw"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-atlantic-black via-atlantic-black/80 to-transparent" />
         </motion.div>
 
@@ -42,18 +49,18 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-5xl md:text-7xl lg:text-[7rem] font-black tracking-tighter leading-[0.9] text-skeleton-bone mb-8"
           >
-            Intelligence built <br className="hidden md:block"/>
-            on what remains.
+            Digital Sovereignty <br className="hidden md:block"/>
+            Forged in Iron.
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-6 max-w-2xl"
+            className="flex flex-col sm:flex-row gap-6 max-w-3xl"
           >
             <p className="text-fog-gray font-sans text-lg md:text-xl leading-relaxed font-light">
-              We build strategic systems, AI-native infrastructure, and resilient operational platforms for African enterprise and institutions.
+              We engineer mission-critical systems and localized AI infrastructure designed for resilience across the African continent and beyond. True autonomy operates where the cloud breaks.
             </p>
           </motion.div>
 
@@ -63,11 +70,11 @@ export default function Home() {
             transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 flex flex-wrap gap-4"
           >
-            <a href="/contact" className="bg-skeleton-bone text-atlantic-black px-8 py-5 font-mono text-sm uppercase tracking-widest hover:bg-fog-gray transition-colors flex items-center gap-3 group">
-              Request Access <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            <a href="/contact" className="min-h-[44px] min-w-[44px] bg-skeleton-bone text-atlantic-black px-8 py-5 font-mono text-sm uppercase tracking-widest hover:bg-fog-gray transition-colors flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm">
+              Initiate Engagement <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" aria-hidden="true" />
             </a>
-            <a href="/brand" className="border border-white/20 text-skeleton-bone px-8 py-5 font-mono text-sm uppercase tracking-widest hover:bg-white/5 transition-colors">
-              Explore Brand System
+            <a href="/brand" className="min-h-[44px] min-w-[44px] border border-white/20 text-skeleton-bone px-8 py-5 font-mono text-sm uppercase tracking-widest hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm">
+              System Capabilities
             </a>
           </motion.div>
         </div>
@@ -102,21 +109,24 @@ export default function Home() {
                 Operational capabilities spanning data sovereignty, signal analysis, and resilient infrastructure.
               </p>
             </div>
-            <a href="/systems" className="font-mono text-xs tracking-widest uppercase text-rust-signal border-b border-rust-signal/30 pb-1 hover:border-rust-signal transition-colors">
+            <a href="/systems" className="font-mono text-xs tracking-widest uppercase text-rust-signal border-b border-rust-signal/30 pb-1 hover:border-rust-signal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm p-1 inline-flex min-h-[44px] items-center">
               View All Systems →
             </a>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 auto-rows-[300px] gap-4 grid-flow-dense">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 auto-rows-min md:auto-rows-[300px] gap-4 grid-flow-dense">
             
             <motion.div 
               whileHover={{ scale: 0.99 }}
-              className="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-[#162024] border border-white/5"
+              className="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-[#162024] border border-white/5 min-h-[300px]"
             >
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" 
-                className="absolute inset-0 w-full h-full object-cover cinematic-image opacity-30 group-hover:scale-105 group-hover:opacity-40 transition-all duration-1000"
-                alt="Server Room"
+                fill
+                referrerPolicy="no-referrer"
+                className="object-cover cinematic-image opacity-30 group-hover:scale-105 group-hover:opacity-40 transition-all duration-1000"
+                alt="A large rack of data servers showcasing infrastructure"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-atlantic-black to-transparent opacity-90" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12 z-10">
@@ -141,25 +151,28 @@ export default function Home() {
               <h3 className="font-display text-2xl text-white mt-8 tracking-tight">Signal Routing</h3>
             </motion.div>
 
-            <motion.div className="bg-[#1C1E22] border border-white/5 p-8 flex flex-col justify-center hover:bg-[#202226] transition-colors">
-              <Hexagon className="w-8 h-8 text-fog-gray/40 mb-6" />
-              <h3 className="font-display text-2xl mb-3 tracking-tight">AI Infrastructure</h3>
-              <p className="font-sans text-sm text-fog-gray/70 leading-relaxed">Deploying localized models trained on regional context, bypassing offshore dependencies.</p>
+            <motion.div className="bg-[#1C1E22] border border-white/5 p-8 flex flex-col justify-center hover:bg-[#202226] transition-colors min-h-[250px]">
+              <Hexagon className="w-8 h-8 text-fog-gray/40 mb-6" aria-hidden="true" />
+              <h3 className="font-display text-2xl mb-3 tracking-tight">On-Premise AI Deployment</h3>
+              <p className="font-sans text-sm text-fog-gray/70 leading-relaxed">Localizing state-of-the-art models inside disconnected, physical enclaves. Protect proprietary assets far from shared cloud risks.</p>
             </motion.div>
 
-            <motion.div className="bg-atlantic-black border border-white/10 p-8 flex flex-col justify-between hover:bg-[#15171a] transition-colors">
+            <motion.div className="bg-atlantic-black border border-white/10 p-8 flex flex-col justify-between hover:bg-[#15171a] transition-colors min-h-[250px]">
               <div className="text-5xl font-display font-bold text-skeleton-bone tracking-tighter">99.99<span className="text-rust-signal">%</span></div>
               <div>
                 <div className="h-[1px] w-full bg-white/10 mb-4" />
-                <div className="font-mono text-xs text-fog-gray/60 uppercase tracking-widest leading-relaxed">Uptime in hostile<br/>environments</div>
+                <div className="font-mono text-xs text-fog-gray/60 uppercase tracking-widest leading-relaxed">Sub-Saharan<br/>Operational Standard</div>
               </div>
             </motion.div>
 
-            <motion.div className="md:col-span-2 relative overflow-hidden bg-deep-ocean border border-white/5 group">
-               <img 
+            <motion.div className="md:col-span-2 relative overflow-hidden bg-deep-ocean border border-white/5 group min-h-[300px]">
+               <Image 
                 src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?q=80&w=2011&auto=format&fit=crop" 
-                className="absolute inset-0 w-full h-full object-cover cinematic-image opacity-30 group-hover:opacity-50 transition-opacity duration-700"
-                alt="Desert Geometry"
+                fill
+                referrerPolicy="no-referrer"
+                className="object-cover cinematic-image opacity-30 group-hover:opacity-50 transition-opacity duration-700"
+                alt="Close-up of harsh basalt rock formations on the ocean coast"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-deep-ocean to-transparent opacity-80" />
               <div className="absolute inset-0 p-8 flex flex-col justify-center z-10 max-w-sm">
@@ -282,9 +295,9 @@ export default function Home() {
             Engage Tangison for strategic infrastructure planning, digital sovereignty audits, or custom system architecture.
           </p>
           
-          <a href="/contact" className="bg-skeleton-bone text-atlantic-black px-12 py-6 font-mono text-sm uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-500 flex items-center justify-center gap-4 max-w-sm mx-auto group shadow-2xl">
-            Initiate Contact 
-            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          <a href="/contact" className="min-h-[44px] min-w-[44px] bg-skeleton-bone text-atlantic-black px-12 py-6 font-mono text-sm uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-500 flex items-center justify-center gap-4 max-w-sm mx-auto group shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rust-signal rounded-sm">
+            Engage Engineering Unit 
+            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" aria-hidden="true" />
           </a>
 
           <div className="mt-24 flex items-center justify-center gap-4 font-mono text-xs text-white/40 tracking-[0.2em]">
