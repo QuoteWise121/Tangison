@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&f[]=cabinet-grotesk@800,500,700,400,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+
+@theme {
+  --color-atlantic-black: #111315;
+  --color-skeleton-bone: #F6F4EF;
+  --color-fog-gray: #D9D7D2;
+  --color-deep-ocean: #16353D;
+  --color-rust-signal: #C56A4A;
+  --font-sans: 'Satoshi', sans-serif;
+  --font-display: 'Cabinet Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--color-atlantic-black);
+  color: var(--color-skeleton-bone);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Matte Grain Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Hide scrollbar for clean aesthetic */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-atlantic-black); }
+::-webkit-scrollbar-thumb { background: #2a2d32; border-radius: 0px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-fog-gray); }
+
+.cinematic-image {
+  filter: grayscale(100%) contrast(1.1) brightness(0.7);
+  transition: filter 0.8s ease;
+}
+
+.cinematic-image:hover {
+  filter: grayscale(80%) contrast(1.2) brightness(0.8);
+}
